@@ -9,10 +9,29 @@ const EmpItem = styled.div`
   margin-bottom: 15px;
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+
+  a {
+    display: block;
+    margin: 10px 0;
+    color: ${props => props.active ? 'orange' : 'gray'};
+  }
+
+  input {
+    display: block;
+    margin-top: 10px;
+  }
 `;
 
 const Header = styled.h2`
   font-size: 22px;
+`;
+
+export const Button = styled.button`
+  display: block;
+  padding: 5px 15px;
+  background-color: gold;
+  border: 1px solid rgba(0, 0, 0, .2);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
 `;
 
 class WhoAmI extends Component {
@@ -30,8 +49,7 @@ class WhoAmI extends Component {
     }))
   }
 
-  commitInputChanges = (e, color) => {
-    console.log(color)
+  commitInputChanges = (e) => {
     this.setState({
       position: e.target.value
     })
@@ -41,8 +59,8 @@ class WhoAmI extends Component {
     const {name, surname, link} = this.props;
     const {position, years} = this.state;
     return (
-      <EmpItem>
-        <button onClick={this.nextYear}>+++</button>
+      <EmpItem active>
+        <Button onClick={this.nextYear}>+++</Button>
         <Header>
           My name is {name}, 
           surname - {surname}, 
@@ -52,7 +70,7 @@ class WhoAmI extends Component {
         <a href={link}>My profile</a>
         <form>
           <span>Enter position</span>
-          <input type="text" onChange={(e) => this.commitInputChanges(e, 'some color')}/>
+          <input type="text" onChange={this.commitInputChanges}/>
         </form>
       </EmpItem>
       );
