@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import './App.css';
@@ -85,7 +85,11 @@ const Wrapper = styled.div`
 const DynamicGreeting = (props) => {
   return (
     <div className={`mb-3 p-3 border border-${props.color}`}>
-      {props.children}
+      {
+        React.Children.map(props.children, child => {
+          return React.cloneElement(child, {className: 'shadow p-3 m-3 border rounded'})
+        })
+      }
     </div>
   )
 }
@@ -95,8 +99,6 @@ function App() {
     <Wrapper>
       <DynamicGreeting color="primary">
         <h1>Hello World</h1>
-      </DynamicGreeting>
-      <DynamicGreeting color="secondary">
         <h2>Nice to meet you!</h2>
       </DynamicGreeting>
       <WhoAmI name="John" surname="Smith" link="facebook.com" />
