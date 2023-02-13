@@ -95,9 +95,21 @@ const DynamicGreeting = (props) => {
   )
 }
 
+const HelloGreeting = () => {
+  return (
+    <div style={{width: '600px', margin: '0 auto'}}>
+      <DynamicGreeting color="primary">
+        <h1>Hello World</h1>
+        <h2>Nice to meet you!</h2>
+      </DynamicGreeting>
+    </div>
+  )
+}
+
 function App() {
   return (
     <Wrapper>
+      <HelloGreeting />
       <BootstrapTest 
         left={
           <DynamicGreeting color="primary">
