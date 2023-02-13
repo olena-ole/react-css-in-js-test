@@ -82,9 +82,23 @@ const Wrapper = styled.div`
   margin: 80px auto 0 auto;
 `;
 
+const DynamicGreeting = (props) => {
+  return (
+    <div className={`mb-3 p-3 border border-${props.color}`}>
+      {props.children}
+    </div>
+  )
+}
+
 function App() {
   return (
     <Wrapper>
+      <DynamicGreeting color="primary">
+        <h1>Hello World</h1>
+      </DynamicGreeting>
+      <DynamicGreeting color="secondary">
+        <h2>Nice to meet you!</h2>
+      </DynamicGreeting>
       <WhoAmI name="John" surname="Smith" link="facebook.com" />
       <WhoAmI name="John" surname="Shepard" link="twitter.com" />
     </Wrapper>
