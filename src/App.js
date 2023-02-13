@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BootstrapTest from './BootstrapTest';
 import styled from 'styled-components';
 
 import './App.css';
@@ -97,10 +98,20 @@ const DynamicGreeting = (props) => {
 function App() {
   return (
     <Wrapper>
-      <DynamicGreeting color="primary">
-        <h1>Hello World</h1>
-        <h2>Nice to meet you!</h2>
-      </DynamicGreeting>
+      <BootstrapTest 
+        left={
+          <DynamicGreeting color="primary">
+            <h1>Hello World</h1>
+            <h2>Nice to meet you!</h2>
+          </DynamicGreeting>
+        }
+        right={
+          <DynamicGreeting color="primary">
+            <h2>RIGHT!</h2>
+          </DynamicGreeting>
+        }
+      />
+
       <WhoAmI name="John" surname="Smith" link="facebook.com" />
       <WhoAmI name="John" surname="Shepard" link="twitter.com" />
     </Wrapper>

@@ -5,7 +5,6 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-import BootstrapTest from './BootstrapTest';
 import { Button } from './App';
 import styled from 'styled-components';
 
@@ -27,7 +26,6 @@ root.render(
     <>
       <App />
       <BigButton as="a">BIG BUTTON AS A LINK</BigButton>
-      <BootstrapTest/>
     </>
 );
 
